@@ -39,8 +39,27 @@ async function listar() {
     fazerTabela(dados);
 }
 
-function fazerTabela(dados){
+function fazerTabela(dados) {
 
+    const tabela = document.getElementById("lista-materiais");
 
+    tabela.innerHTML = `
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Unidades</th>
+            </tr>
+        </thead>
+    `;
 
+    dados.forEach(material => {
+
+        tabela.innerHTML += `
+            <tr>
+                <td>${material.nome}</td>
+                <td>${material.quantidade}</td>
+            </tr>
+        `;
+
+    });
 }
