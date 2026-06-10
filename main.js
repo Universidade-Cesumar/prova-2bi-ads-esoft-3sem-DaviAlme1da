@@ -6,10 +6,11 @@ const botaoCadastrar = document.getElementById("btn-cadastrar");
 
 botaoCadastrar.addEventListener("click", () => {
     const nome = document.getElementById('input-nome').value;
-    const quantidade = document.getElementById('input-cadastrar').value;
+    const quantidade = document.getElementById('input-quantidade').value;
 
     if (!nome === '' || !quantidade === '') {
         alert("Favor, preencher os campos")
+        return;
     } else {
         const material = {
             nome,
@@ -28,4 +29,18 @@ async function cadastrar(material) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(material)
     });
+}
+
+
+async function listar() {
+    const res = await fetch(url);
+    const dados = await res.json();
+
+    fazerTabela(dados);
+}
+
+function fazerTabela(dados){
+
+
+
 }
