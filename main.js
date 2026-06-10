@@ -20,3 +20,12 @@ botaoCadastrar.addEventListener("click", () => {
         document.getElementById('input-cadastrar').value = '';
     }
 })
+
+async function cadastrar(material) {
+
+    const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(material)
+    });
+}
