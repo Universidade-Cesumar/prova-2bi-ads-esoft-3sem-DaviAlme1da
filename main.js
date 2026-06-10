@@ -8,7 +8,7 @@ botaoCadastrar.addEventListener("click", () => {
     const nome = document.getElementById('input-nome').value;
     const quantidade = document.getElementById('input-quantidade').value;
 
-    if (!nome === '' || !quantidade === '') {
+    if (!nome || !quantidade) {
         alert("Favor, preencher os campos")
         return;
     } else {
@@ -18,7 +18,7 @@ botaoCadastrar.addEventListener("click", () => {
         }
         cadastrar(material);
         document.getElementById('input-nome').value = '';
-        document.getElementById('input-cadastrar').value = '';
+        document.getElementById('input-quantidade').value = '';
     }
 })
 
@@ -29,6 +29,8 @@ async function cadastrar(material) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(material)
     });
+
+    listar();
 }
 
 
@@ -63,3 +65,5 @@ function fazerTabela(dados) {
 
     });
 }
+
+listar();
