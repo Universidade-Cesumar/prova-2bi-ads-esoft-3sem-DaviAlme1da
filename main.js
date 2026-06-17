@@ -119,4 +119,6 @@ async function deletar(id){
     listar();
 }
 
-listar();
+if (typeof fetch !== "undefined") {
+    listar();
+}
