@@ -61,7 +61,12 @@ function fazerTabela(dados) {
             <tr>
                 <td>${material.nome}</td>
                 <td>${material.quantidade}</td>
-                <td>Deletar</td>
+                <td>
+                    <button class"btn-baixar">baixar</button>
+                </td>
+                <td>
+                    <button class"btn-excluir">deletar</button>
+                </td>
             </tr>
         `;
 
