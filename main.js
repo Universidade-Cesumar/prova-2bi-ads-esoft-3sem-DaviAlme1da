@@ -3,7 +3,6 @@
 const url = "https://6a29e13cf59cb8f65f1db11a.mockapi.io/material"
 
 const botaoCadastrar = document.getElementById("btn-cadastrar");
-const botaoDarBaixa = document.getElementById("btn-baixar");
 
 botaoCadastrar.addEventListener("click", () => {
     const nome = document.getElementById('input-nome').value;
@@ -63,10 +62,8 @@ function fazerTabela(dados) {
                 <td>${material.nome}</td>
                 <td>${material.quantidade}</td>
                 <td>
-                    <button class"btn-baixar" onclick="darBaixa('${material.quantidade}', '${material.id}', '${material.nome}')">baixar</button>
-                </td>
-                <td>
-                    <button class"btn-excluir" onclick="deletar('${material.id}')">deletar</button>
+                    <button class="btn-baixar" onclick="darBaixa('${material.quantidade}', '${material.id}', '${material.nome}')">baixar</button>
+                    <button class="btn-excluir" onclick="deletar('${material.id}')">deletar</button>
                 </td>
             </tr>
         `;
@@ -77,7 +74,7 @@ function fazerTabela(dados) {
 async function darBaixa(estoqueAtual, idMaterial, materialnome) {
     const quantidadeRetirada = document.getElementById('input-retirada').value;
 
-    if (!validarRetirada(estoqueAtual, quantidadeRetirada)) {
+    if (!validarRetirada(estoqueAtual , quantidadeRetirada)) {
         alert("quantidade incorreta")
         document.getElementById('input-retirada').value = '';
         return;
@@ -101,10 +98,13 @@ async function darBaixa(estoqueAtual, idMaterial, materialnome) {
 
 function validarRetirada(estoqueAtual, quantidadeRetirada) {
 
-    if (quantidadeRetirada === null || quantidadeRetirada <= 0) {
+    const estoque = Number(estoqueAtual);
+    const retirada = Number(quantidadeRetirada);
+
+    if (retirada === null || retirada <= 0) {
         return false;
     }
-    if (estoqueAtual < quantidadeRetirada) {
+    if (estoque < retirada) {
         return false
     }
 
