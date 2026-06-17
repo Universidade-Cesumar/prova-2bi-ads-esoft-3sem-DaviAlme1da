@@ -66,7 +66,7 @@ function fazerTabela(dados) {
                     <button class"btn-baixar" onclick="darBaixa('${material.quantidade}', '${material.id}', '${material.nome}')">baixar</button>
                 </td>
                 <td>
-                    <button class"btn-excluir">deletar</button>
+                    <button class"btn-excluir" onclick="deletar('${material.id}')">deletar</button>
                 </td>
             </tr>
         `;
@@ -109,6 +109,14 @@ function validarRetirada(estoqueAtual, quantidadeRetirada) {
     }
 
     return true;
+}
+
+async function deletar(id){
+    
+    await fetch(`${url}/${id}`, { method: "DELETE" });
+    alert("material foi deletado")
+
+    listar();
 }
 
 listar();
