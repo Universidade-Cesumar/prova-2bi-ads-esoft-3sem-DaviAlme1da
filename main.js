@@ -63,7 +63,7 @@ function fazerTabela(dados) {
                 <td>${material.nome}</td>
                 <td>${material.quantidade}</td>
                 <td>
-                    <button class"btn-baixar" onclick="darBaixa('${material}')>baixar</button>
+                    <button class"btn-baixar" onclick="darBaixa('${material.quantidade}', '${material.id}')">baixar</button>
                 </td>
                 <td>
                     <button class"btn-excluir">deletar</button>
@@ -74,17 +74,29 @@ function fazerTabela(dados) {
     });
 }
 
-async function deletar(material) {
+async function darBaixa(estoqueAtual, idMaterial) {
     const quantidadeRetirada = document.getElementById('input-retirada').value;
 
-    if (!validarRetirada(material.quantidade, quantidadeRetirada)) {
+    console.log(estoqueAtual)
+    console.log(idMaterial)
+
+    if (!validarRetirada(estoqueAtual, quantidadeRetirada)) {
         alert("quantidade incorreta")
+        return;
     }
 }
 
 
 function validarRetirada(estoqueAtual, quantidadeRetirada) {
 
+    if (quantidadeRetirada === null || quantidadeRetirada <= 0) {
+        return false;
+    }
+    if (estoqueAtual < quantidadeRetirada) {
+        return false
+    }
+
+    return true;
 }
 
 listar();
