@@ -3,6 +3,7 @@
 const url = "https://6a29e13cf59cb8f65f1db11a.mockapi.io/material"
 
 const botaoCadastrar = document.getElementById("btn-cadastrar");
+const botaoDarBaixa = document.getElementById("btn-baixar");
 
 botaoCadastrar.addEventListener("click", () => {
     const nome = document.getElementById('input-nome').value;
@@ -62,7 +63,7 @@ function fazerTabela(dados) {
                 <td>${material.nome}</td>
                 <td>${material.quantidade}</td>
                 <td>
-                    <button class"btn-baixar">baixar</button>
+                    <button class"btn-baixar" onclick="darBaixa('${material}')>baixar</button>
                 </td>
                 <td>
                     <button class"btn-excluir">deletar</button>
@@ -71,6 +72,19 @@ function fazerTabela(dados) {
         `;
 
     });
+}
+
+async function deletar(material) {
+    const quantidadeRetirada = document.getElementById('input-retirada').value;
+
+    if (!validarRetirada(material.quantidade, quantidadeRetirada)) {
+        alert("quantidade incorreta")
+    }
+}
+
+
+function validarRetirada(estoqueAtual, quantidadeRetirada) {
+
 }
 
 listar();
