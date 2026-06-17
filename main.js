@@ -63,7 +63,7 @@ function fazerTabela(dados) {
                 <td>${material.nome}</td>
                 <td>${material.quantidade}</td>
                 <td>
-                    <button class"btn-baixar" onclick="darBaixa('${material.quantidade}', '${material.id}')">baixar</button>
+                    <button class"btn-baixar" onclick="darBaixa('${material.quantidade}', '${material.id}', '${material.nome}')">baixar</button>
                 </td>
                 <td>
                     <button class"btn-excluir">deletar</button>
@@ -74,16 +74,28 @@ function fazerTabela(dados) {
     });
 }
 
-async function darBaixa(estoqueAtual, idMaterial) {
+async function darBaixa(estoqueAtual, idMaterial, materialnome) {
     const quantidadeRetirada = document.getElementById('input-retirada').value;
-
-    console.log(estoqueAtual)
-    console.log(idMaterial)
 
     if (!validarRetirada(estoqueAtual, quantidadeRetirada)) {
         alert("quantidade incorreta")
+        document.getElementById('input-retirada').value = '';
         return;
     }
+    const quantidade = estoqueAtual - quantidadeRetirada;
+
+    const material = {
+        materialnome,
+        quantidade
+    }
+
+    const res = await fetch(`${url}/${idMaterial}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(material)
+    });
+
+    listar();
 }
 
 
