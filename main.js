@@ -50,6 +50,7 @@ function fazerTabela(dados) {
             <tr>
                 <th>Produto</th>
                 <th>Unidades</th>
+                <th>Ações</th>
             </tr>
         </thead>
     `;
@@ -60,6 +61,7 @@ function fazerTabela(dados) {
             <tr>
                 <td>${material.nome}</td>
                 <td>${material.quantidade}</td>
+                <td>Deletar</td>
             </tr>
         `;
 
