@@ -79,10 +79,11 @@ async function darBaixa(estoqueAtual, idMaterial, materialnome) {
         document.getElementById('input-retirada').value = '';
         return;
     }
-    const quantidade = estoqueAtual - quantidadeRetirada;
+    const quantidade =
+    Number(estoqueAtual) - Number(quantidadeRetirada);
 
     const material = {
-        materialnome,
+        nome: materialnome,
         quantidade
     }
 
