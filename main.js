@@ -50,14 +50,30 @@ async function cadastrar(material) {
 
 
 async function listar() {
-    const res = await fetch(url);
-    const dados = await res.json();
 
-    materiais = dados;
+    try {
 
-    document.getElementById("total-itens").textContent = dados.length;
+        const res = await fetch(url);
 
-    fazerTabela(dados);
+        if (!res.ok) {
+            throw new Error("Erro ao buscar materiais");
+        }
+
+        const dados = await res.json();
+
+        materiais = dados;
+
+        document.getElementById("total-itens").textContent =
+            dados.length;
+
+        fazerTabela(dados);
+
+    } catch (error) {
+
+        console.error(error);
+        alert("Erro ao carregar materiais.");
+
+    }
 }
 
 inputBusca.addEventListener("input", () => {
