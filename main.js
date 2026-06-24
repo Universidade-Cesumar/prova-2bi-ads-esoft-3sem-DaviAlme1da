@@ -59,8 +59,12 @@ function fazerTabela(dados) {
 
     dados.forEach(material => {
 
+        const classeLinha = Number(material.quantidade) < 10
+            ? "estoque-critico"
+            : "";
+
         tabela.innerHTML += `
-            <tr>
+            <tr class="${classeLinha}">
                 <td>${material.nome}</td>
                 <td>${material.quantidade}</td>
                 <td>
@@ -76,13 +80,13 @@ function fazerTabela(dados) {
 async function darBaixa(estoqueAtual, idMaterial, materialnome) {
     const quantidadeRetirada = document.getElementById('input-retirada').value;
 
-    if (!validarRetirada(estoqueAtual , quantidadeRetirada)) {
+    if (!validarRetirada(estoqueAtual, quantidadeRetirada)) {
         alert("quantidade incorreta")
         document.getElementById('input-retirada').value = '';
         return;
     }
     const quantidade =
-    Number(estoqueAtual) - Number(quantidadeRetirada);
+        Number(estoqueAtual) - Number(quantidadeRetirada);
 
     const material = {
         nome: materialnome,
@@ -114,8 +118,8 @@ function validarRetirada(estoqueAtual, quantidadeRetirada) {
     return true;
 }
 
-async function deletar(id){
-    
+async function deletar(id) {
+
     await fetch(`${url}/${id}`, { method: "DELETE" });
     alert("material foi deletado")
 

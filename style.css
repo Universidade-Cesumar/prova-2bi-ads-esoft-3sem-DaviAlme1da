@@ -49,3 +49,9 @@ main {
     cursor: pointer;
     margin: 10px;
 }
+
+.estoque-critico {
+    background-color: #ffb3b3;
+    color: #8b0000;
+    font-weight: bold;
+}
