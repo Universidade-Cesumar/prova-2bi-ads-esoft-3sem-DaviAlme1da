@@ -26,13 +26,26 @@ botaoCadastrar.addEventListener("click", () => {
 
 async function cadastrar(material) {
 
-    const res = await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(material)
-    });
+    try {
 
-    listar();
+        const res = await fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(material)
+        });
+
+        if (!res.ok) {
+            throw new Error("Erro ao cadastrar");
+        }
+
+        listar();
+
+    } catch (error) {
+
+        console.error(error);
+        alert("Erro ao cadastrar material.");
+
+    }
 }
 
 
