@@ -28,19 +28,20 @@ main {
 #cadastrar-Produto h2 {
     margin: 0px;
     color: #1e1b4b;
-    
-
 }
-.campos  {
+
+.campos {
     border-radius: 8px;
     padding: 1rem;
     flex: 1 1 200px;
 }
+
 .campos h3 {
     color: #1e1b4b;
     margin: 5px;
 }
-#btn-cadastrar{
+
+#btn-cadastrar {
     background-color: #1e1b4b;
     color: #fff;
     border: none;
@@ -48,6 +49,25 @@ main {
     border-radius: 10px;
     cursor: pointer;
     margin: 10px;
+}
+
+#dashboard {
+    text-align: center;
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+#dashboard h2 {
+    margin-top: 0;
+    color: #1e1b4b;
+}
+
+#total-itens {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1e1b4b;
 }
 
 .estoque-critico {
