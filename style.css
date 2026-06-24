@@ -19,6 +19,37 @@ main {
     margin: 2rem auto;
 }
 
+section {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+section h2 {
+    margin-top: 0;
+    color: #1e1b4b;
+}
+
+#dashboard {
+    text-align: center;
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+#dashboard h2 {
+    margin-top: 0;
+    color: #1e1b4b;
+}
+
+#total-itens {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1e1b4b;
+}
+
 #cadastrar-Produto {
     background-color: #9bb7d4;
     border-radius: 20px;
@@ -51,23 +82,30 @@ main {
     margin: 10px;
 }
 
-#dashboard {
-    text-align: center;
-    background-color: white;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 8px;
+#controle-estoque {
+    display: flex;
+    gap: 20px;
 }
 
-#dashboard h2 {
+#busca-material,
+#retirar-quantidade {
+    flex: 1;
+}
+
+#busca-material h2,
+#retirar-quantidade h2 {
     margin-top: 0;
-    color: #1e1b4b;
+    margin-bottom: 15px;
 }
 
-#total-itens {
-    font-size: 24px;
-    font-weight: bold;
-    color: #1e1b4b;
+#retirar-quantidade .campos {
+    margin: 0;
+    padding: 0;
+}
+
+#input-busca,
+#input-retirada {
+    width: 250px;
 }
 
 .estoque-critico {
