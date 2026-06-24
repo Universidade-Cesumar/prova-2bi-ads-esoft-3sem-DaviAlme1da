@@ -155,14 +155,14 @@ async function darBaixa(estoqueAtual, idMaterial, materialnome) {
 
         listar();
 
+        document.getElementById('input-retirada').value = '';
+
     } catch (error) {
 
         console.error(error);
         alert("Erro ao dar baixa no estoque.");
 
     }
-
-    listar();
 }
 
 

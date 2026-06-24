@@ -15,6 +15,12 @@
     </header>
 
     <main>
+
+        <section id="dashboard">
+            <h2>Dashboard</h2>
+            <p>Total de materiais cadastrados: <span id="total-itens">0</span></p>
+        </section>
+
         <section id="cadastrar-Produto">
             <h2>Cadastrar Material</h2>
             <div class="campos">
@@ -29,24 +35,22 @@
             <button id="btn-cadastrar">Cadastrar</button>
         </section>
 
-        <section id="retirar-quantidade">
-            <h2>Dar baixa em volumes</h2>
-            <div class="campos">
-                <h3>Quantidade para dar Baixa</h3>
-                <input type="number" id="input-retirada">
+        <section id="controle-estoque">
+
+            <div id="busca-material">
+                <h2>Pesquisar Material</h2>
+                <input type="text" id="input-busca">
             </div>
+
+            <div id="retirar-quantidade">
+                <h2>Quantidade para dar Baixa</h2>
+                <div class="campos">
+                    <input type="number" id="input-retirada">
+                </div>
+            </div>
+
         </section>
 
-        <section id="dashboard">
-            <h2>Dashboard</h2>
-            <p>Total de materiais cadastrados: <span id="total-itens">0</span></p>
-        </section>
-
-        <section id="busca-material">
-            <h2>Pesquisar Material</h2>
-
-            <input type="text" id="input-busca">
-        </section>
 
         <section id="mostrar-Produto">
             <h2>Mostrar Produtos</h2>
