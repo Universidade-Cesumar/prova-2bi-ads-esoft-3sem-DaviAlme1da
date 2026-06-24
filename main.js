@@ -1,6 +1,8 @@
 // Arquivo para código javascript
 
 const url = "https://6a29e13cf59cb8f65f1db11a.mockapi.io/material"
+const inputBusca = document.getElementById("input-busca");
+let materiais = [];
 
 const botaoCadastrar = document.getElementById("btn-cadastrar");
 
@@ -38,10 +40,27 @@ async function listar() {
     const res = await fetch(url);
     const dados = await res.json();
 
+    materiais = dados;
+
     document.getElementById("total-itens").textContent = dados.length;
 
     fazerTabela(dados);
 }
+
+inputBusca.addEventListener("input", () => {
+
+    const texto =
+        inputBusca.value.toLowerCase();
+
+    const materiaisFiltrados =
+        materiais.filter(material =>
+            material.nome
+                .toLowerCase()
+                .includes(texto)
+        );
+
+    fazerTabela(materiaisFiltrados);
+});
 
 function fazerTabela(dados) {
 
