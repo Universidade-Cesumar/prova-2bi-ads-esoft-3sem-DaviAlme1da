@@ -33,14 +33,9 @@ section h2 {
 
 #dashboard {
     text-align: center;
-    background-color: white;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 8px;
 }
 
 #dashboard h2 {
-    margin-top: 0;
     color: #1e1b4b;
 }
 
@@ -57,7 +52,7 @@ section h2 {
 }
 
 #cadastrar-Produto h2 {
-    margin: 0px;
+    margin: 0;
     color: #1e1b4b;
 }
 
@@ -72,6 +67,13 @@ section h2 {
     margin: 5px;
 }
 
+input {
+    padding: 8px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
 #btn-cadastrar {
     background-color: #1e1b4b;
     color: #fff;
@@ -80,6 +82,10 @@ section h2 {
     border-radius: 10px;
     cursor: pointer;
     margin: 10px;
+}
+
+#btn-cadastrar:hover {
+    background-color: #312e81;
 }
 
 #controle-estoque {
@@ -106,6 +112,41 @@ section h2 {
 #input-busca,
 #input-retirada {
     width: 250px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #1e1b4b;
+    color: white;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.btn-baixar {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn-excluir {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
 .estoque-critico {
