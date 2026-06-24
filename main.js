@@ -141,11 +141,26 @@ async function darBaixa(estoqueAtual, idMaterial, materialnome) {
         quantidade
     }
 
-    const res = await fetch(`${url}/${idMaterial}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(material)
-    });
+    try {
+
+        const res = await fetch(`${url}/${idMaterial}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(material)
+        });
+
+        if (!res.ok) {
+            throw new Error("Erro ao atualizar estoque");
+        }
+
+        listar();
+
+    } catch (error) {
+
+        console.error(error);
+        alert("Erro ao dar baixa no estoque.");
+
+    }
 
     listar();
 }
@@ -168,10 +183,26 @@ function validarRetirada(estoqueAtual, quantidadeRetirada) {
 
 async function deletar(id) {
 
-    await fetch(`${url}/${id}`, { method: "DELETE" });
-    alert("material foi deletado")
+    try {
 
-    listar();
+        const res = await fetch(`${url}/${id}`, {
+            method: "DELETE"
+        });
+
+        if (!res.ok) {
+            throw new Error("Erro ao deletar");
+        }
+
+        alert("Material foi deletado");
+
+        listar();
+
+    } catch (error) {
+
+        console.error(error);
+        alert("Erro ao deletar material.");
+
+    }
 }
 
 if (typeof fetch !== "undefined") {
