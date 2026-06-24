@@ -38,6 +38,8 @@ async function listar() {
     const res = await fetch(url);
     const dados = await res.json();
 
+    document.getElementById("total-itens").textContent = dados.length;
+
     fazerTabela(dados);
 }
 
